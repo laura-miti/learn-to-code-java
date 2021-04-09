@@ -1,0 +1,21 @@
+Comenzi linia comanda
+
+Windows - open cmd sau PowerShell
+
+Linux / Mac - open Terminal
+
+pwd - print working directory
+
+cd - change working directory
+cd dirName - call subfolder
+cd.. - one directory upwards in the current folder path
+cd~ - jumps to beginning home folder in Linux/Mac
+cd\  - jumps to beginning home folder in Windows
+
+ls - lists files in a directory for Linux and Mac
+dir - list files in a directory for Windows
+
+touch - create a new empty file in Liux/Mac
+copy con + filename - create a new empty file in Windows ??
+
+mkdir - create a new empty folder

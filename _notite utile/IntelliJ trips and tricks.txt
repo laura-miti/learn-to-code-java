@@ -1,0 +1,14 @@
+IntelliJ Tips and tricks
+
+Add new class -> in denumire poti pune pachet.NumeClasa si iti genereaza automat pachetul si structura aferenta
+
+In fisierul .java richt click mouse -> Generate -> Getters and Setters  sau versiunea mai rapida Alt+Insert
+
+Create an interface from a class -> in class -> Refactor -> Extract -> Interface
+
+Copy a project:
+ - copy + paste cu noul nume
+ - IntelliJ - open the new project and make sure the project zone has the correct new name
+ - select conference.iml + click dreapta + Refactor + rename la noul nume de proiect
+ - open pom.xml and change artifactId with the new project name
+ - when i Run the app -> edit confuguration -> module -> java 11
