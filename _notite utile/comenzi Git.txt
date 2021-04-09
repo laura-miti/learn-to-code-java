@@ -1,0 +1,154 @@
+git --version  - versiunea de Git instalata
+
+git config --global user.name "Laura Mititelu" - setare nume user care face modificarile
+
+git config --global user.email "mititelu_laura@yahoo.com" - setare email user care face modificarile
+
+=> use of --global = git applies it to everything we do in the system
+for a certain  project, when you're in the project, if you want to change options, run the same commands, but without --global -> keeps the global settings for everything else
+
+git config --list => see config settings
+
+git config user.name => see settings for user.name
+
+man git -> see full manual for git in Linux
+git-help + section you want (git-help config - for more about config options)
+git-help -> see the most used commands in git, in Linux
+
+High Level Commands = Porcelain Commands - used regularly in projects
+Lower Level Commands = Plumbing Commands - meant to be used in tools and scripts
+
+git --help -> most used commands (porcelain commands), in Windows
+in Windows, there is no option to see the full manual https://github.com/swcarpentry/shell-novice/issues/249
+
+git repository aka repo (virtual storage of my project)
+each project in Git is refrerenced as a repository.
+
+To initialize the repository -> cd to that project using the command line (Linux)
+Windows -> open folder and right click mouse -> Git Bash here
++ (l/w)
+git init => initializes an empty repository in the current dir
+By initializing your project, it added the Git configuration to a .git subdirectory that has marked this project folder and all of its contents to be version controlled. This .git subdirectory is hidden by default, but you can go into that folder by typing cd .git, and then you can use the ls command to provide a list of the files in this folder. This .git directory just contains all of the important get metadata for this new repository.
+ Even though we've initialized Git on this project, the contents in these files haven't changed, they've only been added to be version controlled by Git.
+
+GitHub, GitLab, and Bitbucket - most popular code hosting providers -web‑based Git repositories hosting services
+
+
+GITHUB
+The steps to push content to GitHub won't change with these two plans (free and paid), other than the fact that only authorized collaborators that Steve can manage will be able to see his project. 
+
+add a gitignore, which is a way to add files that you don't want version controlled by Git
+
+add a license to your repository. You can learn more about the different licenses you can add by clicking the Information icon next to the drop‑down option. For real projects, these options are probably a good idea to add, as recommended by GitHub. 
+Using HTTPS URLs to push or pull changes to or from your repository, GitHub will ask you for your GitHub username and email address for verification. There is also an option to use the SSH URLs to provide access to your Git repository via the SSH Secure protocol. In order to use these SSH URLs, you need to first generate an SSH key pair and then add that public key to your GitHub account in your profile settings. Using SSH URLs to push or pull changes to or from your repository, GitHub will prompt you with a password, and you'll need to enter in your SSH key passphrase 
+more details: help.github.com/articles/which-remote-url-should-i-use
+
+If you already have a repository, choose to push an existing repository from the command line
+git remote add origin git@github.com:idgit/denrepo
+git push -u origin master
+
+Create a new repository on the command line
+echo "# denumire-repository" >> README.md -- add and create 
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:idgit/denrepo
+git push -u origin master
+
+echo - says that we want to write wired‑brain‑recipes with an H1 HTML header into a new file called README.md. Now, you can really put anything you want into this README file, but by default, GitHub Just includes the name of your repository. 
+expl meu echo "#ExercitiiJavaOCP8" >> README.md
+
+Windows Din GUI Bash / Linux - Terminal in directorul respectiv!!
+ls
+echo
+git init 
+git config
+etc.
+
+git add . => punctul adauga toate fisierele din directorul curent la staging area
+
+daca da eroarea: does not have a commit checked out 
+fatal: adding files failed
+inseamna ca sunt repositories in calea curenta
+
+
+if the current folder name is project_folder, is this how we remove git from the current folder? rm -r project_folder/.git - nu funct
+If you really want to remove all of the repository, leaving only the working directory then it should be as simple as this.: rm -rf .git
+
+
+git commit -m "first commit"
+And now that these files have been added, we can now make a commit with a message that says first commit. We can do this by typing git commit ‑m for message, and then in parentheses, first commit. Git then responds back with some interesting information, and it can tell us on what we just did. 
+
+
+git remote add origin https://github.com/laura-miti/learn-to-code-java.git -> https din linkul de pe github (quick setup)
+We then need to connect our local repository to the one we just created on GitHub by linking the two repositories with a git command. This can be done with the remote add origin and then the HTTPS URL that we just copied. This command adds the origin GitHub repository to our local repository by creating a link that allows us to push and pull changes between the two
+
+git push -u origin master
+
+
+clear - curata istoricul din Terminal/GUI Bash
+This clears out our window and moves our command prompt to the top of the screen. Now, we didn't erase this command history. We can always scroll back up to view our previous commands. 
+
+git push -u origin master = to push our committed changes to the origin master by typing git push -u origin master. Remember, the origin is the repository version that sits in our GitHub profile. master - branch-ul local!!
+
+git status - arata status
+exemplu de mesaj returnat: check the status of your project at any time by using the git status command. If we type git status in our command line, Git will respond back with a few lines of information. 
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+git status - check the status of your project at any time by using the git status command. If we type git status in our command line, Git will respond back with a few lines of information. 
+The git status command is a simple but important command because it shows us the state of our project at this particular point in time. 
+
+When we created the repository - Git created the master branch automatically
+A branch in Git is a lightweight, movable pointer to your project at a specific point in time. 
+This default branch that was created is called the master branch. 
+When you make changes in Git, you make them on a specific branch. Now branching is a core concept in Git and a feature that adds a lot of value by allowing many different types of workflows that can involve many different types of branches. 
+
+. Each file in our project can be in one of two states. It can be tracked or untracked by Git.
+Untracked means that Git sees a new file that didn't exist in our last commit snapshot.  Git won't track anything unless we explicitly tell it to do so, but Git does provide us with some helpful information on how to add this untracked file when we run git status
+Tracked files are ones that were in the previous Git snapshot. 
+Tracked files can be in one of three states: 
+-committed, which are unmodified changes from the last snapshot; 
+-modified, which are files that we've added changes to; 
+-and then staged, which are files that we've marked to be added to our next commit snapshot. 
+When we make a change to our committed or unmodified file, it moves from a committed stage and into the modified stage. 
+When we're satisfied with our changes and we want to stage them for commit, we add them to our staging area.
+We then take the changes in the staged area and commit them to our repository. These changes are now saved in our repository in that commit snapshot and they are then moved back to the committed stage
+
+touch vendors.txt - creeaza un fisier gol vendors.txt
+
+git add vendors.txt - adds the untracked file to changes to be committed
+
+git add "denumire si cale cu spatii" => pentru orice comenzi cu spatiu pun ""
+
+Noticed that employees.txt is now showing as staged and ready to be committed, as well as showing as modified changes not yet staged. Now this may seem a little confusing. I mean, how can a file be in two states at the same time? Well, the answer is how and when Git stages a file. When we first staged our employees.txt file by using the git add command, those changes were added at that point in time to be staged. When we fixed the phone number and then resaved the file, Git sees this as a new change that was not added when we previously staged that file. If we committed the files in our staged area right now, the version of employees.txt when we added it to the staging area, is what will be committed into the snapshot. This will not include the fix we just made, since we haven't added that change to be included into our next commit snapshot by staging it with the git add command. 
+
+If you change a file after you run git add and you want those changes to be included in your next commit snapshot, you have to run git add again on that file to add those changes to be staged. 
+
+"git status -s" echiv cu "git status --short"
+The key to understanding the short status response is knowing what the letters in front of the files mean and their placement. After running this command, Git will place the name of the files in the far‑right column. There is then a middle column and a far‑left column. The far‑left column indicates that the file has been staged, and the middle column indicates that the file has been modified but remains in the working directory. The letter M means modified, and the letter A means new files that have been added to the staging area, and two question marks mean that there is a new file that is untracked by Git
+GitBash: M/A green, M - red - modified from recent add to stage area, 
+can be both A and M : A M tralala.txt => A - newly added to staged area, M - modified since it was added to staged area
+
+git diff command
+. If the git status command is too vague and you want to see the actual changes being made in these files and not just know which files have been changed, you can use the git diff command
+. You can use git diff to answer two questions, what changes have I staged that are ready to be committed, and what changes have I made but not staged? 
+
+git diff --staged - This command compares our staged changes to our last commit snapshot
+When we run git diff ‑‑staged, we're going to see an interesting detailed response. So let's go over how to read this output. The first thing we see are the compared file versions. Git diff is comparing file a with file b. Now in almost every case, file a and file b will be the same file but just in different snapshot versions. This is shown with diff ‑‑git and then file a, followed by file b. The next line is the file metadata. Now this is technical information of our files. The first two numbers are the hashes or IDs of the two file versions that are being compared. As we were briefly introduced to SHA‑1 hashes in a previous module, Git identifies a file object at a specific version by using these SHA‑1 hashes. The last number is most likely going to be 100644. Now, this is just a internal file mode identifier that represents a normal file. Now there are other number identifiers, but diving into this metadata information is more advanced Git knowledge that won't be covered in detail in this course. Again, for now, just know that it's there and the basics of what it is. Next, we see the change markers for file a and b. File version a is assigned with the minus symbol, and file version b is assigned with the plus symbol. Next, there is the diff chunk, which is made up of two parts, the chunk header and the chunk changes. At the top of this chunk is the chunk header, and the header is enclosed with two @ symbols on each side and will tell you which lines were changed in the file versions. File a is represented with a minus sign, and file b is represented with a plus sign. In this example, the ‑12 is saying that the minus sign, again, being file a, begins at line 12 and then has 2 lines that were modified. The +12 is saying that the plus sign, being file b, also begins at line 12 and then has 3 lines modified. After the chunk header, we have the chunk changes that contain the actual line changes. Now this often includes a few lines of unchanged lines before or after the changes to help provide context of where these changes are being made in the files. These changes will either have a minus or a plus sign in front of the change to show you what version that change is occurring in. However, for files with only one or two lines of content, these extra lines may not show up.
+By running the git dif ‑‑staged command, we see that the compared a and b version files is employees.txt. Next, we have the metadata with these file version hashes and the file mode identifier, which is the id for a normal file. We then see the change markers for the two file versions of employees.txt, with the minus being the last committed snapshot version and the plus being the new changes that are in our stage state. We then see the chunk header that shows us the line changes being made in these files, and then we see the chunk changes where we actually see what is being changed. Now, we also see another compared a and b version files, but unlike the employees.txt file comparison, this file a and file b comparison is with different files. File a is employees.txt, and file b is vendors.txt. Below, we see some interesting information that says, similarity index 100%, copy from employees.txt, and copy to vendors.txt. So what's going on here? Well, the reason for this is how Git thinks about filed changes Now, Git doesn't care what the name of the files are. Git really only cares about the content inside of those files. Now, we added a new vendors.txt file that is currently an empty file, and the other file in our staging area is the employees.txt, which was also an empty file before we added some content to it by adding the new employees information. Now, Git sees this similarity and thinks that we just copied the employees.txt file and then renamed it to vendors.txt. The similarity index is the percentage of unchanged files. Well, and since these two file versions are the same, the similarity index is 100%, so Git thinks it's the same file. Now, since this is not the case, we can get around this by explicitly telling Git that this is not a renamed file, but it is in fact a different file. And to show us the Git log as it should be, we can see the correct dif information by again typing get dif ‑‑staged. But this time, let's add the ‑‑no‑renames option. We now see the compared a and b version files for vendors.txt and some similar formatted information that was in our employees.txt version differences. Git tells us that this is a new file with the normal file identifier, and then we see the file metadata. Notice that the first hash reference is a hash of 0s. Because this is a new file, Git wasn't previously tracking this file so there is no hash reference to compare it with. The second hash, which is e69de29, is the new hash for the contents inside vendors.txt. But just a second, the vendors.txt file is empty. There isn't any content in this file. Since Git is now tracking this file, Git needs to create a hash of contents from the file. Even if the file contents are empty, creating a hash on an empty file responds back with the hash reference of e69de29. Remember, Git only cares about the hash reference of a file to keep track of its content. Since the vendors.txt file has a hash of e69de29 and the beginning file version of employees.txt before the added employee change, being file a, also has the same hash reference of e69de29. This is why Git thought we just copied and renamed the file. Now, the git diff ‑‑staged shows us the information on changes that are staged.
+
+TYPE Q TO EXIT ANY GIT DIFF OR GIT STATUS COMMAND THAT RUNS MULTIPLE SCREENS - EXITING LISTIM MODE
+
+git diff --staged +filename => shows the diffs in that file
+
+git diff
+
+open -a atom + filename - opens => Opens Atom in Linux to edit a file
+
+
+You can use git add . then git commit  
+OR
+You can use git commit - a => adds and commits at the same time.

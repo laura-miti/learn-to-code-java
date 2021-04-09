@@ -19,3 +19,13 @@ touch - create a new empty file in Liux/Mac
 copy con + filename - create a new empty file in Windows ??
 
 mkdir - create a new empty folder
+
+echo "#ExercitiiJavaOCP8" >> README.md = creeaza un fisier README.md cu continutul #ExercitiiJavaOCP8 
+
+Linux/Mac: open -a vendors.txt - opens the file
+
+" denumire fisiere cu spatii intre cuvinte" -> trebuie puse ghilimele astfel incat sa nu fie interpretate ca optiuni/comenzi/optiuni
+
+open -a atom + filename - opens => Opens Atom in Linux to edit a file
+
+TYPE Q TO EXIT ANY GIT DIFF OR GIT STATUS COMMAND THAT RUNS MULTIPLE SCREENS - EXITING LISTIM MODE

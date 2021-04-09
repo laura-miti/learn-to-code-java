@@ -1,0 +1,88 @@
+
+ARCHITECTURE AND PROJECT SETUP
+Intellij -> New Project -> Maven -> Next ->
+	artifactId = project name
+	groupId = package
+
+IntelliJ vers 2020 adauga automat versiunea de compiler de maven in pom xml.
+Daca nu, trebuie adaugate, dupa <version>, in cadrul <plugin> urmatoarele linii corespunzatoare Java 11:
+	<configuration>
+		<source> 11 </source>
+		<target> 11 </target>
+	</configuration>
+	
+Apoi trebuie adaugat Spring Framework ca dependinta, tot in pom.xml
+	<dependencies>
+		<dependency>
+			<groupId> org.springframework</groupId>
+			<artifactId> spring-context</artifactId>
+			<version> 5.3.4 </version> 
+		</dependency>
+	</dependency>
+	
+We code to an interface -> create an interface and use polymorphism
+
+Code structure / tiers:
+model - base classes - the objects with which you work
+repository - conexiunea cu baza de date
+service - business logic tier - the classes that do stuff with the model classes extracted from the repository
+
+We need a configuration file: new class AppConfig.java that will have @Configuration annotation above class declaration:
+@Configuration
+public class AppConfig{}
+
+applicationContext.xml has been replaced by @Configuration annotation
+
+
+To configure classes for Spring: you do not use new to create new instances, you provide setters or constructors - see setter and constructor injection
+
+
+@BEAN
+Spring Beans are defined by @Bean
+Methods used in conjunction with the bean annotation are used to get instances of Spring Beans
+
+@Bean 
+- method annotation
+= spring component
+- first add the method and then put the annotation above
+- method returns an instance of a bean and that the Bean is now registered inside of Spring and available for us to use inside of our Sping app.
+
+Classes and method names can be anything - Spring does not care
+
+@Bean placed in a configuration file
+@Bean(name) - name is optional
+Naming a bean helps with autowiring -> autowire by name to our variable name so these match up and it automatically happens for us ( set the setter names accordingly too)
+
+example
+@Configuration
+public class AppConfig{
+	@Bean(name = "customerRepository")
+	public CustomerRepository getCustomerRepository(){
+		return new HibernateCustomerRepositoryImpl(); //returns implementer, not Interface!
+	}
+}
+
+Beans in Spring are, by default, all a Singleton and will only execute the method the frist time it's called.
+
+
+SETTER INJECTION
+is simply a matter of calling a setter ona bean
+We do not call an instance we create, but call and get an instance of a bean from the Spring config file
+
+To configure a class:
+instead of:
+public class SpeakerServiceImpl{
+	private SpeakerRepository repository = new HibernateRepositoryImpl();
+}
+use:
+public class SpeakerServiceImpl{
+	private SpeakerRepository repository;
+	public void setRepository(SpeakerRepository repository){
+		this.repository = repository;
+	}
+}
+and in AppConfig use a bean:
+@Bean(name ="SpeakerRepository")
+public SpeakerRepository getSpeakerRepository(){
+	return new HibernateRepositoryImpl(); 
+}
