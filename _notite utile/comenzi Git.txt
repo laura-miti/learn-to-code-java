@@ -187,3 +187,17 @@ git log --stat => get a detailed view of each of our commits. output the same as
 git log --patch => the full diff of the exact changes in each file with each commit. This is similar to the results that we got back when using the git diff command. But instead of doing it on changes in our staging area, we can go back to any commit in our project's history using git log and see this detailed view. We can navigate these changes using the up and down arrow keys. And when finished, we can type Q for quit
 
 Many options when viewing the commit log. We can search for author, date range, or even for certain commit messages
+
+GIT COMMIT -m
+Git Messages
+If the commit message isn't detailed enough, life for every contributor on the project can get pretty frustrating. So, for this reason, there are some general rules and guidelines when writing a commit message.
+Read: https://chris.beams.io/posts/git-commit/ 
+Chris goes on to list the seven rules of a great commit message. 
+First, to separate the subject line from the body with a blank line. Now up to this point our commit messages have only been a one‑line message written from our command line, and they didn't include a body. A lot of commits don't require both a subject and a body. Sometimes a single line is sufficient for the changes being made. For example, add a new ingredient to coconut oil coffee recipe. A change like this may not need a body in the commit message. In addition, adding a commit message with the body is best done using a text editor to write the message rather than using the -m option in the command line. 
+Second, limit the subject line to 50 characters. The commit message should be short and to the point. If it's too long, it can be a tedious process to filter through lines and lines of messages to find exactly what you're looking for. 
+And third, capitalize the subject line. 
+And fourth, do not end the subject line with a period. 
+Fifth, use the imperative mood in the subject line. 
+Sixth, wrap the body to about 72 characters. Remember, this is the body, not the subject line.
+And seventh, use the body to explain the what and why versus the how. This one ties in a little bit with the first rule. If your commit needs an explanation on what is going on, the body is used to explain the what and the why. 
+Remember, when you're writing a commit message, it's important to keep in mind that you're writing the message for other people to read and understand what is going on. The better the explanation, the easier it will be to navigate through the git log and the more transparent the log will be. 

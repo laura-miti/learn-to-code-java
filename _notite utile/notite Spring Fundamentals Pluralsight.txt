@@ -1,3 +1,4 @@
+Notite Spring Fundamentals Pluralsight
 
 ARCHITECTURE AND PROJECT SETUP
 Intellij -> New Project -> Maven -> Next ->

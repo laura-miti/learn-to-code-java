@@ -13,6 +13,7 @@ cd~ - jumps to beginning home folder in Linux/Mac
 cd\  - jumps to beginning home folder in Windows
 
 ls - lists files in a directory for Linux and Mac
+ls "nume_subdirector" - listeaza fisierle din subdirector
 dir - list files in a directory for Windows
 
 touch - create a new empty file in Liux/Mac
