@@ -257,4 +257,7 @@ This brings up a tool called Vim where we need to add our merge commit message, 
 GIT MERGE BRANCH_NAME
 we're already checked out to master, we can type git merge and then the name of the branch we want to merge into.So, in our case, we want to merge new branch into the master branch. . We now see that our head is still on master, but a new merge commit was created that is pointing to both branch paths. Our local master branch now has the changes that were made in our new branch
 
-Merging branches
+This brings up a tool called Vim where we need to add our merge commit message, similar to a regular commit. Now we won't be going over Vim in detail, but we can add our message by typing I to enter the interactive mode and then writing our merge commit message, which in our case, we'll just leave it as it already is. And then when done, hitting the escape key, followed by :wq. The w saves our changes, and the q quits Vim. 
+
+GIT RESET
+

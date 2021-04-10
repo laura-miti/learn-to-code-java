@@ -32,3 +32,10 @@ open -a atom + filename - opens => Opens Atom in Linux to edit a file
 TYPE Q TO EXIT ANY GIT DIFF OR GIT STATUS COMMAND THAT RUNS MULTIPLE SCREENS - EXITING LISTIM MODE
 
 clear - clears screen in Terminal
+
+VIM
+This brings up a tool called Vim where we need to add our merge commit message, similar to a regular commit. Now we won't be going over Vim in detail, but 
+we can add our message by typing I to enter the interactive mode and then writing our merge commit message, which in our case, we'll just leave it as it already is. 
+And then when done, hitting the escape key, followed by :wq. 
+The w saves our changes, a
+nd the q quits Vim.
