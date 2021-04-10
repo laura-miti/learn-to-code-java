@@ -29,3 +29,5 @@ Linux/Mac: open -a vendors.txt - opens the file
 open -a atom + filename - opens => Opens Atom in Linux to edit a file
 
 TYPE Q TO EXIT ANY GIT DIFF OR GIT STATUS COMMAND THAT RUNS MULTIPLE SCREENS - EXITING LISTIM MODE
+
+clear - clears screen in Terminal

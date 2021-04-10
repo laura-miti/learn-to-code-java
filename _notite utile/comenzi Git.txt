@@ -152,3 +152,7 @@ open -a atom + filename - opens => Opens Atom in Linux to edit a file
 You can use git add . then git commit  
 OR
 You can use git commit - a => adds and commits at the same time.
+git commit -a -m "Commit and add at the same time"
+Git provides the branch we made the commit on, which in our situation, is the master branch. We then see the SHA‑1 hash from the commit, as well as the commit message that we provided. We then see the number of files that we changed and some stats on how many insertions and/or deletions that were made in these files for this commit. If a new file was added with this commit, Git shows us that too on the next line that says create mode 100644, which is saying a normal file was created, and then the name of the new file, vendors.txt.
+
+Notice that we don't have to push our commit to our project at 'origin/master' every time we make a commit. Now we can continue to make commits to our local project as much as we want. And then when our local project is at a point where we want to send our changes to our origin project, we need to push our local project upstream. We can send our changes to our origin project by using the git push command and then our remote name, which is origin, and then the branch name we want to push up to, which in this case, is master.
