@@ -1,5 +1,7 @@
+GIT --VERSION
 git --version  - versiunea de Git instalata
 
+GIT CONFIG
 git config --global user.name "Laura Mititelu" - setare nume user care face modificarile
 
 git config --global user.email "mititelu_laura@yahoo.com" - setare email user care face modificarile
@@ -11,6 +13,7 @@ git config --list => see config settings
 
 git config user.name => see settings for user.name
 
+MAN GIT
 man git -> see full manual for git in Linux
 git-help + section you want (git-help config - for more about config options)
 git-help -> see the most used commands in git, in Linux
@@ -18,6 +21,7 @@ git-help -> see the most used commands in git, in Linux
 High Level Commands = Porcelain Commands - used regularly in projects
 Lower Level Commands = Plumbing Commands - meant to be used in tools and scripts
 
+GIT --HELP
 git --help -> most used commands (porcelain commands), in Windows
 in Windows, there is no option to see the full manual https://github.com/swcarpentry/shell-novice/issues/249
 
@@ -27,6 +31,7 @@ each project in Git is refrerenced as a repository.
 To initialize the repository -> cd to that project using the command line (Linux)
 Windows -> open folder and right click mouse -> Git Bash here
 + (l/w)
+GIT INIT 
 git init => initializes an empty repository in the current dir
 By initializing your project, it added the Git configuration to a .git subdirectory that has marked this project folder and all of its contents to be version controlled. This .git subdirectory is hidden by default, but you can go into that folder by typing cd .git, and then you can use the ls command to provide a list of the files in this folder. This .git directory just contains all of the important get metadata for this new repository.
  Even though we've initialized Git on this project, the contents in these files haven't changed, they've only been added to be version controlled by Git.
@@ -43,6 +48,8 @@ add a license to your repository. You can learn more about the different license
 Using HTTPS URLs to push or pull changes to or from your repository, GitHub will ask you for your GitHub username and email address for verification. There is also an option to use the SSH URLs to provide access to your Git repository via the SSH Secure protocol. In order to use these SSH URLs, you need to first generate an SSH key pair and then add that public key to your GitHub account in your profile settings. Using SSH URLs to push or pull changes to or from your repository, GitHub will prompt you with a password, and you'll need to enter in your SSH key passphrase 
 more details: help.github.com/articles/which-remote-url-should-i-use
 
+GIT REMOTE ADD ORIGIN GIT@GITHUB.COM:IDGIT/DENREPO
+GIT PUSH -U ORIGIN MASTER
 If you already have a repository, choose to push an existing repository from the command line
 git remote add origin git@github.com:idgit/denrepo
 git push -u origin master
@@ -55,14 +62,15 @@ git commit -m "first commit"
 git remote add origin git@github.com:idgit/denrepo
 git push -u origin master
 
+ECHO "# DENUMIRE-REPOSITORY" >> README.MD -- ADD AND CREATE
 echo - says that we want to write wired‑brain‑recipes with an H1 HTML header into a new file called README.md. Now, you can really put anything you want into this README file, but by default, GitHub Just includes the name of your repository. 
 expl meu echo "#ExercitiiJavaOCP8" >> README.md
 
 Windows Din GUI Bash / Linux - Terminal in directorul respectiv!!
-ls
-echo
-git init 
-git config
+LS
+ECHO
+GIT INIT 
+GIT CONFIG
 etc.
 
 git add . => punctul adauga toate fisierele din directorul curent la staging area
@@ -75,23 +83,24 @@ inseamna ca sunt repositories in calea curenta
 if the current folder name is project_folder, is this how we remove git from the current folder? rm -r project_folder/.git - nu funct
 If you really want to remove all of the repository, leaving only the working directory then it should be as simple as this.: rm -rf .git
 
-
+GIT COMMIT -M "FIRST COMMIT"
 git commit -m "first commit"
 And now that these files have been added, we can now make a commit with a message that says first commit. We can do this by typing git commit ‑m for message, and then in parentheses, first commit. Git then responds back with some interesting information, and it can tell us on what we just did. 
 
+GIT REMOTE ADD ORIGIN HTTPS://GITHUB.COM/LAURA-MITI/LEARN-TO-CODE-JAVA.GIT
 
 git remote add origin https://github.com/laura-miti/learn-to-code-java.git -> https din linkul de pe github (quick setup)
 We then need to connect our local repository to the one we just created on GitHub by linking the two repositories with a git command. This can be done with the remote add origin and then the HTTPS URL that we just copied. This command adds the origin GitHub repository to our local repository by creating a link that allows us to push and pull changes between the two
 
-git push -u origin master
+GIT PUSH -U ORIGIN MASTER
 
-
+CLEAR
 clear - curata istoricul din Terminal/GUI Bash
 This clears out our window and moves our command prompt to the top of the screen. Now, we didn't erase this command history. We can always scroll back up to view our previous commands. 
 
 git push -u origin master = to push our committed changes to the origin master by typing git push -u origin master. Remember, the origin is the repository version that sits in our GitHub profile. master - branch-ul local!!
 
-git status - arata status
+GIT STATUS - arata status
 exemplu de mesaj returnat: check the status of your project at any time by using the git status command. If we type git status in our command line, Git will respond back with a few lines of information. 
 On branch master
 Your branch is up to date with 'origin/master'.
@@ -132,6 +141,8 @@ The key to understanding the short status response is knowing what the letters i
 GitBash: M/A green, M - red - modified from recent add to stage area, 
 can be both A and M : A M tralala.txt => A - newly added to staged area, M - modified since it was added to staged area
 
+GIT DIFF
+
 git diff command
 . If the git status command is too vague and you want to see the actual changes being made in these files and not just know which files have been changed, you can use the git diff command
 . You can use git diff to answer two questions, what changes have I staged that are ready to be committed, and what changes have I made but not staged? 
@@ -148,6 +159,7 @@ git diff
 
 open -a atom + filename - opens => Opens Atom in Linux to edit a file
 
+GIT COMMIT -A -M "COMMIT AND ADD AT THE SAME TIME"
 
 You can use git add . then git commit  
 OR
@@ -156,3 +168,22 @@ git commit -a -m "Commit and add at the same time"
 Git provides the branch we made the commit on, which in our situation, is the master branch. We then see the SHA‑1 hash from the commit, as well as the commit message that we provided. We then see the number of files that we changed and some stats on how many insertions and/or deletions that were made in these files for this commit. If a new file was added with this commit, Git shows us that too on the next line that says create mode 100644, which is saying a normal file was created, and then the name of the new file, vendors.txt.
 
 Notice that we don't have to push our commit to our project at 'origin/master' every time we make a commit. Now we can continue to make commits to our local project as much as we want. And then when our local project is at a point where we want to send our changes to our origin project, we need to push our local project upstream. We can send our changes to our origin project by using the git push command and then our remote name, which is origin, and then the branch name we want to push up to, which in this case, is master.
+
+
+GIT LOG
+git log -way to view our existing commit history . by default, the git log command lists the commits made to our project in reverse chronological order, being the most recent commits will show up first.
+this is a quick way to have a high‑level overview of our previous commits and know who made each commit, when a commit was created, and what that commit was changing
+has many options
+
+git log and then the number we want to limit the log to -> limit the number of commits shown in the log
+git log -1 => shows only the lateste commit
+git log -2 => last 2 commits
+log output returns the commits in reverse chronological order
+
+git log --oneline - shows only summary of each commitEach line in the response is a commit, and it has the commit message, as well as a few digits of the SHA-1 hash of that commit. This is a great way to see a simplified, high‑level overview of all the commits in our project history
+
+git log --stat => get a detailed view of each of our commits. output the same as if we just use git log, but now with the addition of the files changed in each commit
+
+git log --patch => the full diff of the exact changes in each file with each commit. This is similar to the results that we got back when using the git diff command. But instead of doing it on changes in our staging area, we can go back to any commit in our project's history using git log and see this detailed view. We can navigate these changes using the up and down arrow keys. And when finished, we can type Q for quit
+
+Many options when viewing the commit log. We can search for author, date range, or even for certain commit messages
