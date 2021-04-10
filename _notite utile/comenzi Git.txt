@@ -201,3 +201,60 @@ Fifth, use the imperative mood in the subject line.
 Sixth, wrap the body to about 72 characters. Remember, this is the body, not the subject line.
 And seventh, use the body to explain the what and why versus the how. This one ties in a little bit with the first rule. If your commit needs an explanation on what is going on, the body is used to explain the what and the why. 
 Remember, when you're writing a commit message, it's important to keep in mind that you're writing the message for other people to read and understand what is going on. The better the explanation, the easier it will be to navigate through the git log and the more transparent the log will be. 
+
+GIT RM
+git rm "filename.extension" - to remove a file in our project, we need to tell Git to stop tracking the file
+git rm "tralala.txt"
+ls - arata ca nu mai urmareste fisierul respectiv
+git status - arata ca am sters tralala.txt
+git rm --cached "vendors.txt" - untrack the files, but keep it around
+
+GIT MV
+git mv oldname newname - rename a file old name -> new name
+git mv "notite Spring Fundamentals Pluralsight.txt" "notite Spring Fundamentals Pluralsight-setari initiale.txt" - rename a file old name -> new name
+
+
+BRANCHES
+
+HEAD which is where we are currently pointing at on our project
+Now a branch in Git is simply a lightweight, movable pointer to a commit made in a project. A commit needs to be made on a branch, but you have full flexibility on telling Git what branch to make that commit on. 
+
+GIT CHECKOUT -B NEW_BRANCH
+git checkout -b new_branch => creates a new branch and checks out to it at the same time
+Notice now that a new pointer has been created called new_branch
+The git checkout command lets you check out to a different branch
+-b option is telling Git that we want to create a new branch and then check out to it. 
+our new_branch, master, and HEAD all point to the same commit in our project, but that our HEAD pointer is now under new_branch and no longer directly under master. This is because we have checked out to our new_branch, and we are no longer in our master branch. HEAD is just a pointer to our current state on the branch we are on.
+
+git checkout master => checkout back to our master branch 
+The other commits stay on our new_branch, even if we've checked out to a different branch. 
+When on master, new changes will be made to master and will not be included in the new_branch created
+
+git checkout new_branch -> move the work to new_branch, head moves accordingly
+new commits -> work continues from where we left, but only on that branch. won't affect anything on master
+Branching off of master allows us to create a parallel environment where we can try out new ideas and make changes without affecting the master branch. And this is huge when trying out new ideas or working with multiple collaborators. 
+
+git branch branch_name  =>create a branch, but not check out to it at that moment
+When we removed and renamed these files on our master branch, they remained in our staging area. We didn't commit these changes yet to a branch. And since we created a new branch off of master at this point in time, the changes in the staging area remained
+git status -> shows which branch you are checked out to
+git checkout master -> return to master
+an error saying, The following untracked working tree files would be overwritten by checkout. Please move or remove them before checkout. Now, since we untracked our file with git rm ‑‑cached, we deleted the version control cache, but did not remove or delete it from our file system. 
+
+Now, we can remove it, or we can add it back in to be tracked. But Steve doesn't quite want to get rid of this file, but he doesn't want to add it right now to be included in his local project. So Git provides us with an option to stash this change. 
+git add .
+git stash -> saved working directory and index state WIP on new branch
+git stash list - > Git provides us with a list of work‑in‑progress changes that we've stashed along with the branch and some commit data
+git stash show -> better detailed view of what file was stashed in a high‑level overview of the changes
+git stash pop -> reverts stashed files in working directory
+
+ATTENTION: not the file on which you are currently working!
+
+MERGING BRANCHES
+branching lets you work on content without affecting the master branch, sort of like working in a test sandbox environment
+But what if we now want to incorporate the changes from our new branch into master? Well, this is a pretty common step. It wouldn't make much sense to create a separate branch if we never intended to incorporate those changes back into our production‑ready master branch
+This brings up a tool called Vim where we need to add our merge commit message, similar to a regular commit. Now we won't be going over Vim in detail, but we can add our message by typing I to enter the interactive mode and then writing our merge commit message, which in our case, we'll just leave it as it already is. And then when done, hitting the escape key, followed by :wq. The w saves our changes, and the q quits Vim. 
+
+GIT MERGE BRANCH_NAME
+we're already checked out to master, we can type git merge and then the name of the branch we want to merge into.So, in our case, we want to merge new branch into the master branch. . We now see that our head is still on master, but a new merge commit was created that is pointing to both branch paths. Our local master branch now has the changes that were made in our new branch
+
+Merging branches
